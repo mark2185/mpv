@@ -49,6 +49,12 @@ func (c *Client) Seek(n int, mode SeekMode) error {
 	return err
 }
 
+// Quit closes the client instance
+func (c *Client) Quit() error {
+	_, err := c.Exec("quit")
+	return err
+}
+
 // PlaylistNext plays the next playlistitem or NOP if no item is available.
 func (c *Client) PlaylistNext() error {
 	_, err := c.Exec("playlist-next", "weak")
