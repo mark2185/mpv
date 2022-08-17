@@ -173,6 +173,11 @@ func (c *Client) Volume() (float64, error) {
 	return c.GetFloatProperty("volume")
 }
 
+// SetVolume sets the current volume level.
+func (c *Client) SetVolume(v float64) error {
+	return c.SetProperty("volume", v)
+}
+
 // Speed returns the current playback speed.
 func (c *Client) Speed() (float64, error) {
 	return c.GetFloatProperty("speed")
