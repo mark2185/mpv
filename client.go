@@ -34,15 +34,17 @@ func (c *Client) Loadfile(path string, mode string) error {
 	return err
 }
 
+type SeekMode string
+
 // Mode options for Seek
 const (
-	SeekModeRelative = "relative"
-	SeekModeAbsolute = "absolute"
+	SeekModeRelative SeekMode = "relative"
+	SeekModeAbsolute SeekMode = "absolute"
 )
 
 // Seek seeks to a position in the current file.
 // Use mode to seek relative to current position (SeekModeRelative) or absolute (SeekModeAbsolute).
-func (c *Client) Seek(n int, mode string) error {
+func (c *Client) Seek(n int, mode SeekMode) error {
 	_, err := c.Exec("seek", strconv.Itoa(n), mode)
 	return err
 }
