@@ -175,6 +175,9 @@ func (c *Client) Volume() (float64, error) {
 
 // SetVolume sets the current volume level.
 func (c *Client) SetVolume(v float64) error {
+	if v > 130 {
+		return nil
+	}
 	return c.SetProperty("volume", v)
 }
 
